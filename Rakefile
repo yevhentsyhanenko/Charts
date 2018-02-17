@@ -153,6 +153,7 @@ task :ci, [:platform] do |_task, args|
 
   if test_platforms.include?(platform)  # iOS and tvOS
     if platform == :iOS
+      sh "xcodebuild -project 'ChartsDemo/ChartsDemo.xcodeproj' -list"
       execute 'clean', platform, is_build_demo
       execute 'build', platform, is_build_demo
       execute 'test', platform  # not use demo specifically
