@@ -264,6 +264,21 @@ open class PieChartView: PieRadarChartViewBase
         fatalError("PieChart has no XAxis")
     }
     
+    /// Animates highlighting action
+    /// - Parameter duration: Animation duration
+    @objc open func animateHighlight(duration: TimeInterval) {
+        chartAnimator.animate(dimension: .H, duration: duration)
+    }
+    
+    @objc override open func highlightValue(_ highlight: Highlight?, callDelegate: Bool) {
+        super.highlightValue(highlight, callDelegate: callDelegate);
+        guard let pieData = self.data as? PieChartData,
+            let duration = pieData.dataSet?.selectionShiftDuration,
+            let isEnabled = pieData.dataSet?.isSelectionAnimated,
+            isEnabled else { return }
+        self.animateHighlight(duration: duration);
+    }
+    
     open override func indexForAngle(_ angle: CGFloat) -> Int
     {
         // take the current angle of the chart into consideration

@@ -31,6 +31,7 @@ class PieChartViewController: DemoBaseViewController {
                         .animateX,
                         .animateY,
                         .animateXY,
+                        .animateH,
                         .spin,
                         .drawCenter,
                         .saveToGallery,
@@ -67,6 +68,14 @@ class PieChartViewController: DemoBaseViewController {
         }
         
         self.setDataCount(Int(sliderX.value), range: UInt32(sliderY.value))
+    }
+    
+    override func handleOption(_ option: Option, forChartView chartView: ChartViewBase) {
+        if option == .animateH {
+            self.chartView.animateHighlight(duration: 1)
+            return
+        }
+        super.handleOption(option, forChartView: chartView)
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
@@ -131,6 +140,9 @@ class PieChartViewController: DemoBaseViewController {
             
         case .animateXY:
             chartView.animate(xAxisDuration: 1.4, yAxisDuration: 1.4)
+        
+        case .animateH:
+            chartView.animateHighlight(duration: 0.5)
             
         case .spin:
             chartView.spin(duration: 2,
