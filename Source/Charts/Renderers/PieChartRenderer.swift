@@ -320,7 +320,7 @@ open class PieChartRenderer: DataRenderer
             
             for j in 0 ..< dataSet.entryCount
             {
-                guard let e = dataSet.entryForIndex(j) else { continue }
+                guard let e = dataSet.entryForIndex(j), j < drawAngles.count else { continue }
                 let pe = e as? PieChartDataEntry
                 
                 if xIndex == 0
