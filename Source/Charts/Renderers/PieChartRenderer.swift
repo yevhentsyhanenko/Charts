@@ -138,10 +138,10 @@ open class PieChartRenderer: DataRenderer
         
         for j in 0 ..< entryCount
         {
+            
+            guard let e = dataSet.entryForIndex(j), j < drawAngles.count else { continue }
             let sliceAngle = drawAngles[j]
             var innerRadius = userInnerRadius
-            
-            guard let e = dataSet.entryForIndex(j) else { continue }
             
             // draw only if the value is greater than zero
             if (abs(e.y) > Double.ulpOfOne)
