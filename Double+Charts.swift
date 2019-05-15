@@ -12,11 +12,11 @@ public extension Double {
     ///   - minVal: Lower bounds
     ///   - maxVal: Upper bounds
     /// - returns: Adjusted Double value
-    public func adjustTo(minVal: Double, maxVal: Double) -> Double {
-        if minVal...maxVal ~= self {
-            return self;
-        }
-        if self < minVal { return minVal }
-        return maxVal
-    }
+//    public func adjustTo(minVal: Double, maxVal: Double) -> Double {
+//        if minVal...maxVal ~= self {
+//            return self;
+//        }
+//        if self < minVal { return minVal }
+//        return maxVal
+//    }
 }

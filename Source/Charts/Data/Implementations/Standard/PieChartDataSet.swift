@@ -12,6 +12,21 @@
 import Foundation
 import CoreGraphics
 
+public extension Double {
+    /// Adjusts a current Double value for bounds with specified min and max
+    /// - parameters:
+    ///   - minVal: Lower bounds
+    ///   - maxVal: Upper bounds
+    /// - returns: Adjusted Double value
+    public func adjustTo(minVal: Double, maxVal: Double) -> Double {
+        if minVal...maxVal ~= self {
+            return self;
+        }
+        if self < minVal { return minVal }
+        return maxVal
+    }
+}
+
 open class PieChartDataSet: ChartDataSet, IPieChartDataSet
 {
     @objc(PieChartValuePosition)
