@@ -55,6 +55,8 @@ public protocol ILineChartDataSet: ILineRadarChartDataSet
     /// - returns: `true` if drawing circles for this DataSet is enabled, `false` ifnot
     var isDrawCirclesEnabled: Bool { get }
     
+    var circleBorderColor: NSUIColor? { get set }
+    
     /// The color of the inner circle (the circle-hole).
     var circleHoleColor: NSUIColor? { get set }
     

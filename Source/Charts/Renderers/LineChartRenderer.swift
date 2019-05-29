@@ -675,6 +675,10 @@ open class LineChartRenderer: LineRadarRenderer
                 }
                 else
                 {
+                    let color = dataSet.circleBorderColor ?? .clear
+                    
+                    context.setStrokeColor(color.cgColor)
+                    context.strokeEllipse(in: rect)
                     context.fillEllipse(in: rect)
                     
                     if drawCircleHole
