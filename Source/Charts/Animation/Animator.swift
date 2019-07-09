@@ -118,7 +118,7 @@ open class Animator: NSObject
     {
         guard _displayLink != nil else { return }
         
-        _displayLink?.remove(from: .main, forMode: .commonModes)
+        _displayLink?.remove(from: .main, forMode: .common)
         _displayLink = nil
         
         _enabledX = false
@@ -214,7 +214,7 @@ open class Animator: NSObject
             if _displayLink == nil
             {
                 _displayLink = NSUIDisplayLink(target: self, selector: #selector(animationLoop))
-                _displayLink?.add(to: RunLoop.main, forMode: .commonModes)
+                _displayLink?.add(to: RunLoop.main, forMode: .common)
             }
         }
     }
