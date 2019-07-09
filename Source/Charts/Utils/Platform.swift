@@ -13,7 +13,7 @@ types are aliased to either their UI* implementation (on iOS) or their NS* imple
 	public typealias NSUIImage = UIImage
 	public typealias NSUIScrollView = UIScrollView
 	public typealias NSUIGestureRecognizer = UIGestureRecognizer
-	public typealias NSUIGestureRecognizerState = UIGestureRecognizerState
+	public typealias NSUIGestureRecognizerState = UIGestureRecognizer.State
 	public typealias NSUIGestureRecognizerDelegate = UIGestureRecognizerDelegate
 	public typealias NSUITapGestureRecognizer = UITapGestureRecognizer
 	public typealias NSUIPanGestureRecognizer = UIPanGestureRecognizer
@@ -274,7 +274,7 @@ types are aliased to either their UI* implementation (on iOS) or their NS* imple
             stop()
         }
 
-		open func add(to runloop: RunLoop, forMode mode: RunLoopMode)
+		open func add(to runloop: RunLoop, forMode mode: RunLoop.Mode)
         {
             if displayLink != nil
             {
@@ -286,7 +286,7 @@ types are aliased to either their UI* implementation (on iOS) or their NS* imple
             }
 		}
 
-		open func remove(from: RunLoop, forMode: RunLoopMode)
+		open func remove(from: RunLoop, forMode: RunLoop.Mode)
         {
             stop()
 		}
